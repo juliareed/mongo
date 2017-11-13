@@ -31,8 +31,10 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
 // database configuration with mongoose
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-mongoose.connect(MONGODB_URI);
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongo"
+mongoose.connect(MONGODB_URI, {
+    useMongoClient: true
+});
 var db = mongoose.connection;
 
 // show any mongoose errors
