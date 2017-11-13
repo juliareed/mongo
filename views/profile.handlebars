@@ -11,7 +11,9 @@
 						{{#each articles}}
 						<li class = "collection-item favsie">
 							<span class="title"><a href = {{this.link}}>{{this.title}}</a></span>
-							<a href="#!" class = "secondary-content masterTooltip save-favorite" title = "Saved!" data-id = {{this._id}}><i class="material-icons">favorite</i></a>
+							<a href="#!" class = "secondary-content masterTooltip save-favorite" title = "Saved!" data-id = {{this._id}}>
+								{{!-- <i class="material-icons">favorite</i> --}}
+								</a>
       						<p>{{this.author}}<br>
       						{{this.summary}}</p>
       						<p>Comments</p>							
