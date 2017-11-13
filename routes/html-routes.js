@@ -71,22 +71,21 @@ module.exports = function(app, request) {
         });
     });
 
-    app.get('/profile', function(req, res) {
-        Article.find({
-            saved: true
-        }).exec(function(err, docs) {
-            if (err) {
-                console.log(err);
-                res.send('Error');
-            } else {
-                console.log('DOCS');
-                console.log('================================');
-                console.log(docs);
-                var saved = {
-                    articles: docs
-                }
-                res.render('profile', saved);
-            }
-        });
-    });
+    // app.get('/profile', function(req, res) {
+    //     Article.find({
+    //         saved: true
+    //     }).exec(function(err, docs) {
+    //         if (err) {
+    //             console.log(err);
+    //             res.send('Error');
+    //         } else {
+    //             console.log('DOCS');
+    //             console.log('================================');
+    //             console.log(docs);
+    //             var saved = {
+    //                 articles: docs
+    //             }
+    //             res.render('profile', saved);
+    //         }
+    //     });
 };
