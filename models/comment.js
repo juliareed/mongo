@@ -1,8 +1,8 @@
-//Set up dependencies
+// set up dependencies
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-//Create Comments
+// create comments
 var CommentSchema = new Schema({
     title: {
         type: String

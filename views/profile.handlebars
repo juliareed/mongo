@@ -5,16 +5,16 @@
 				<div class = "card-content">
 					<span class = "card-title"><h2 id = "article-title">Saved Articles</h2></span>
 					<hr>
-					<!--Populate articles here-->
+					<!-- populate articles here-->
 			  		<ul class="collection">
-			  			<!--use a If for saved or not-->
+			  			<!-- use an IF for saved or not-->
 						{{#each articles}}
 						<li class = "collection-item favsie">
 							<span class="title"><a href = {{this.link}}>{{this.title}}</a></span>
 							<a href="#!" class = "secondary-content masterTooltip save-favorite" title = "Saved!" data-id = {{this._id}}><i class="material-icons">favorite</i></a>
       						<p>{{this.author}}<br>
       						{{this.summary}}</p>
-      						<p>COMMENTS</p>							
+      						<p>Comments</p>							
 						</li>
 						{{/each}}
 					</ul>

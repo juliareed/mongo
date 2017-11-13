@@ -1,5 +1,5 @@
-//Dependencies
-var Article = require('../models/Article.js');
+// dependencies
+var Article = require('../models/article.js');
 var mongoose = require('mongoose');
 mongoose.Promise = Promise;
 
@@ -22,7 +22,6 @@ module.exports = function(app) {
         Article.find({}).exec(function(err, articles) {
             if (err) {
                 console.log('ERROR');
-                console.log('*******');
             } else {
                 res.json(articles);
             }

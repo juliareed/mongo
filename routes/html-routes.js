@@ -1,15 +1,15 @@
-//Dependencies
+// dependencies
 var path = require('path');
 var cheerio = require('cheerio');
-var Article = require('../models/Article.js');
+var Article = require('../models/article.js');
 var mongoose = require('mongoose');
 mongoose.Promise = Promise;
 
-//Routes
+// routes
 module.exports = function(app, request) {
 
     app.get('/', function(req, res) {
-        //Send landing page
+        // send landing page
         var scraped = {
             scrape: false
         };
@@ -17,41 +17,41 @@ module.exports = function(app, request) {
     });
 
     app.get('/scrape', function(req, res) {
-        //Scrape website for titles and posts
+        // scrape website for titles and posts
         request('https://www.nytimes.com/section/politics', function(error, response, html) {
             var $ = cheerio.load(html);
-            //find by proper id/class
+            // find by proper id/class
             var results = {
                 articles: []
             }
 
             $('.story-body').each(function(i, element) {
-                //Set up object to be fed to handlebars
+                // set up object to be fed to handlebars
                 var article = {};
                 article.title = $(this).find('.headline').text();
                 article.link = $(this).find('story-link').attr('href');
                 article.summary = $(this).find('.summary').text()
                 article.author = $(this).find('.byline').text();
                 article.saved = false;
-                //Create object for handlebars to render
+                // create object for handlebars to render
                 results.articles.push(article);
-                //Insert into MongoDB				
+                // insert into MongoDB				
                 var newArticle = new Article(article);
 
                 newArticle.save(function(err, doc) {
-                    //Log errors
+                    // log errors
                     if (err) {
                         console.log('ERROR:');
                         console.log('==================================');
                         console.log(err);
                     } else {
-                        //Or log the doc
+                        // or log the doc
                         console.log(doc);
                     }
                 });
             });
 
-            //Render with scrape notification
+            // render with scrape notification
             var scraped = {
                 scrape: true
             };
@@ -66,7 +66,7 @@ module.exports = function(app, request) {
             var results = {
                     articles: docs
                 }
-                //sput in an object, render with handlebars baby
+                // put in an object, render with handlebars
             res.render('NYT', results);
         });
     });

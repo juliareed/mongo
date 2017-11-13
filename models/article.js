@@ -1,12 +1,12 @@
-//Require mongoose
+// require mongoose
 var mongoose = require('mongoose');
-//Create Schema
+// create Schema
 var Schema = mongoose.Schema;
 
-//Create Article Schema
+// create Article Schema
 
 var ArticleSchema = new Schema({
-    //Title
+    // title
     title: {
         type: String,
         unique: true
@@ -14,28 +14,28 @@ var ArticleSchema = new Schema({
     author: {
         type: String
     },
-    //Summary
+    // summary
     summary: {
         type: String
     },
-    //Link
+    // link
     link: {
         type: String
     },
-    //Saved
+    // saved
     saved: {
         type: Boolean,
         default: false
     },
-    //Note
+    // note
     comment: {
         type: Schema.Types.ObjectId,
         ref: "Comment"
     }
 });
 
-//Create article schema with this
+// create article schema with this
 var Article = mongoose.model('Article', ArticleSchema);
 
-//Export for use
+// export for use
 module.exports = Article;
