@@ -1,0 +1,37 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+    background-image: url('../images/newspaper-bg.jpg');
+}
+
+#intro-card-image {
+    height: 200px;
+    width: 200px;
+    margin-left: 90px;
+    margin-bottom: 20px;
+    padding-top: 30px;
+}
+
+#article-titles {
+    background-color: #000000;
+}
+
+.number {
+    color: #000000;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    border: 1px solid #333;
+    background-color: #161616;
+    border-radius: 5px;
+    padding: 10px;
+    color: #fff;
+    font-size: 12px Arial;
+}

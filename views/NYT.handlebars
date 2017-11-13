@@ -1,0 +1,29 @@
+<div class = "container">
+	<div class = "row">
+		<div class = "col m12">
+			<div class = "card">
+				<div class = "card-content">
+					<span class = "card-title"><h2 id = "article-title">Articles</h2></span>
+					<hr>
+					<!--Populate articles here-->
+			  		<ul class="collection">
+			  			<!--use a If for saved or not-->
+						{{#each articles}}
+						<li class = "collection-item">
+							<span class="title"><a href = {{this.link}}>{{this.title}}</a></span>
+							{{#if this.saved}}
+							<a href="#!" class = "secondary-content masterTooltip save-favorite" title = "Saved!" data-id = {{this._id}}><i class="material-icons">favorite</i></a>
+							{{/if}}
+							{{#unless this.saved}}
+							<a href="#!" class = "secondary-content masterTooltip save-favorite" title = "Click to save!" data-id = {{this._id}}><i class="material-icons">favorite_border</i></a>
+							{{/unless}}
+      						<p>{{this.author}}<br>
+      						{{this.summary}}</p>							
+						</li>
+						{{/each}}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
